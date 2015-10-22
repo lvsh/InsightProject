@@ -61,7 +61,7 @@ def get_nounphrases(text):
     tree = chunker.parse(sent)
     for subtree in tree.subtrees():
       if subtree.label() == 'NP': 
-        noun_phrases.extend([w[0] for w in subtree.leaves()])
+        noun_phrases.extend(" ".join([w[0] for w in subtree.leaves()]))
 
   noun_phrases = [remove_punctuation(nphrase) for nphrase in noun_phrases]
   noun_phrases = [n for n in noun_phrases if n]    
